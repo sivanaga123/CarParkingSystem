@@ -11,7 +11,6 @@ public class CarDetails {
 		this.regNo = regNo;
 		this.colour = colour;
 	}
-	
 
 	public Integer getSlotNo() {
 		return slotNo;

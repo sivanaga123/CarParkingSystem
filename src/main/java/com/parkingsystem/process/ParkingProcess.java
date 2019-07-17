@@ -1,4 +1,4 @@
-package com.parkingsystem;
+package com.parkingsystem.process;
 
 public class ParkingProcess {
 

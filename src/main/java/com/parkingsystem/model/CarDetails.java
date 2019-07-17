@@ -1,23 +1,12 @@
 package com.parkingsystem.model;
 
 public class CarDetails {
-	private Integer slotNo;
 	private String regNo;
 	private String colour;
 	
-	public CarDetails(Integer slotNo, String regNo, String colour) {
-		super();
-		this.slotNo = slotNo;
+	public CarDetails(String regNo, String colour) {
 		this.regNo = regNo;
 		this.colour = colour;
-	}
-
-	public Integer getSlotNo() {
-		return slotNo;
-	}
-
-	public void setSlotNo(Integer slotNo) {
-		this.slotNo = slotNo;
 	}
 
 	public String getRegNo() {
@@ -38,7 +27,7 @@ public class CarDetails {
 
 	@Override
 	public String toString() {
-		return "CarDetails [slotNo=" + slotNo + ", regNo=" + regNo + ", colour=" + colour + "]";
+		return "CarDetails [regNo=" + regNo + ", colour=" + colour + "]";
 	}
 	
 }

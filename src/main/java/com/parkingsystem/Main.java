@@ -54,30 +54,16 @@ public class Main
 				}
 				break;
 			}
-			case 1:// File input/output
+			case 1:
 			{
 				File inputFile = new File(args[0]);
 				try
 				{
 					bufferReader = new BufferedReader(new FileReader(inputFile));
-					int lineNo = 1;
 					while ((input = bufferReader.readLine()) != null)
 					{
 						input = input.trim();
-						if (true/*processor.validate(input)*/)
-						{
-							try
-							{
-								
-							}
-							catch (Exception e)
-							{
-								System.out.println(e.getMessage());
-							}
-						}
-						else
-							System.out.println("Incorrect Command Found at line: " + lineNo + " ,Input: " + input);
-						lineNo++;
+						
 					}
 				}
 				catch (Exception e)

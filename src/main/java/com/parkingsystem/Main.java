@@ -5,75 +5,74 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
+import com.parkingsystem.service.InputValidationService;
+import com.parkingsystem.service.ParkingService;
+import com.parkingsystem.serviceImpl.InputValidationServiceImpl;
+import com.parkingsystem.serviceImpl.ParkingServiceImpl;
+
 public class Main 
 {
     public static void main( String[] args )
     {
-        System.out.println( "*** Car Parking System ***" );
-        BufferedReader bufferReader = null;
-		String input = null;
+        System.out.println( "*** Welcome to Car Parking System ***" );
+		String inputLine;
+		BufferedReader bufferReader;
+		InputValidationService inputValidationService = new InputValidationServiceImpl();
 		
         switch (args.length)
 		{
 			case 0:
 			{
-				System.out.println("Input:");
+				System.out.println("Please Enter the your input:");
 				while (true)
 				{
 					try
 					{
 						bufferReader = new BufferedReader(new InputStreamReader(System.in));
-						input = bufferReader.readLine().trim();
-						if (input.equalsIgnoreCase("exit"))
+						inputLine = bufferReader.readLine().trim();
+						
+						if (inputLine.equalsIgnoreCase("Exit"))
 						{
 							break;
 						}
 						else
 						{
-							/*if (processor.validate(input))
+							System.out.println(inputLine);
+							if (inputValidationService.isValidInput(inputLine))
 							{
-								try
-								{
-									processor.execute(input.trim());
-								}
-								catch (Exception e)
-								{
-									System.out.println(e.getMessage());
-								}
+								System.out.println(inputLine);
 							}
-							else
-							{
-								printUsage();
-							}*/
 						}
 					}
 					catch (Exception e)
 					{
-						
+						System.out.println(e);
 					}
 				}
 				break;
 			}
 			case 1:
 			{
-				File inputFile = new File(args[0]);
-				try
+				
+				try(BufferedReader fileReader = new BufferedReader(new FileReader(new File(args[0]))) )
 				{
-					bufferReader = new BufferedReader(new FileReader(inputFile));
-					while ((input = bufferReader.readLine()) != null)
+					while ((inputLine = fileReader.readLine()) != null)
 					{
-						input = input.trim();
-						
+						inputLine = inputLine.trim();
+						if (inputValidationService.isValidInput(inputLine))
+						{
+							
+						}
 					}
 				}
 				catch (Exception e)
 				{
-					
+					System.out.println(e);
 				}
 				break;
 			}
 			default:
-				System.out.println("Invalid input.");
+				System.out.println("Invalid Input");
 		}
 		        
     }

@@ -1,5 +1,5 @@
 package com.parkingsystem.service;
 
-public interface ParkingServie {
+public interface ParkingService {
 
 }

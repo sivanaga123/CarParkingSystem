@@ -5,11 +5,10 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
+import com.parkingsystem.process.AbstractParkingProcess;
 import com.parkingsystem.process.ParkingProcess;
 import com.parkingsystem.service.InputValidationService;
-import com.parkingsystem.service.ParkingService;
 import com.parkingsystem.serviceImpl.InputValidationServiceImpl;
-import com.parkingsystem.serviceImpl.ParkingServiceImpl;
 
 public class Main 
 {
@@ -19,7 +18,7 @@ public class Main
 		String inputLine;
 		BufferedReader bufferReader;
 		InputValidationService inputValidationService = new InputValidationServiceImpl();
-		ParkingProcess parkingProcess = new ParkingProcess();
+		AbstractParkingProcess parkingProcess = new ParkingProcess();
 		
         switch (args.length)
 		{
@@ -39,11 +38,11 @@ public class Main
 						}
 						else
 						{
-							System.out.println(inputLine);
 							if (inputValidationService.isValidInput(inputLine))
 							{
-								System.out.println(inputLine);
 								parkingProcess.processImplementation(inputLine);
+							}else {
+								System.out.println("Not valid command");
 							}
 						}
 					}
@@ -56,14 +55,13 @@ public class Main
 			}
 			case 1:
 			{
-				try(BufferedReader fileReader = new BufferedReader(new FileReader(new File(args[0]))) )
+				try(BufferedReader fileReader = new BufferedReader(new FileReader(new File(args[0]))))
 				{
-					while ((inputLine = fileReader.readLine()) != null)
+					while ((inputLine = fileReader.readLine().trim()) != null)
 					{
-						inputLine = inputLine.trim();
 						if (inputValidationService.isValidInput(inputLine))
-						{
-							
+						{	
+							parkingProcess.processImplementation(inputLine.trim());
 						}
 					}
 				}

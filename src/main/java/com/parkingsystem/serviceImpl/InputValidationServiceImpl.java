@@ -5,6 +5,7 @@ import com.parkingsystem.utils.KeyWords;
 
 public class InputValidationServiceImpl implements InputValidationService {
 	
+	@Override
 	public Boolean isValidInput(String inputString) {
 		String inputWords[] = inputString.split(" ");
 		boolean isValidString = false;
@@ -34,4 +35,5 @@ public class InputValidationServiceImpl implements InputValidationService {
 		
 		return isValidString;
 	}
+	
 }

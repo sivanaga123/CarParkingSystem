@@ -1,10 +1,10 @@
 package com.parkingsystem.model;
 
-public class CarDetails {
+public class Car {
 	private String regNo;
 	private String colour;
 	
-	public CarDetails(String regNo, String colour) {
+	public Car(String regNo, String colour) {
 		this.regNo = regNo;
 		this.colour = colour;
 	}

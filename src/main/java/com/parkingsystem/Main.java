@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.InputStreamReader;
 
+import com.parkingsystem.process.ParkingProcess;
 import com.parkingsystem.service.InputValidationService;
 import com.parkingsystem.service.ParkingService;
 import com.parkingsystem.serviceImpl.InputValidationServiceImpl;
@@ -18,6 +19,7 @@ public class Main
 		String inputLine;
 		BufferedReader bufferReader;
 		InputValidationService inputValidationService = new InputValidationServiceImpl();
+		ParkingProcess parkingProcess = new ParkingProcess();
 		
         switch (args.length)
 		{
@@ -41,6 +43,7 @@ public class Main
 							if (inputValidationService.isValidInput(inputLine))
 							{
 								System.out.println(inputLine);
+								parkingProcess.processImplementation(inputLine);
 							}
 						}
 					}
@@ -53,7 +56,6 @@ public class Main
 			}
 			case 1:
 			{
-				
 				try(BufferedReader fileReader = new BufferedReader(new FileReader(new File(args[0]))) )
 				{
 					while ((inputLine = fileReader.readLine()) != null)

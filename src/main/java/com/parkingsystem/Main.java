@@ -14,7 +14,7 @@ public class Main
 {
     public static void main( String[] args )
     {
-        System.out.println( "*** Welcome to Car Parking System ***" );
+       /* System.out.println( "*** Welcome to Car Parking System ***" );*/
 		String inputLine;
 		BufferedReader bufferReader;
 		InputValidationService inputValidationService = new InputValidationServiceImpl();
@@ -67,7 +67,7 @@ public class Main
 				}
 				catch (Exception e)
 				{
-					System.out.println(e);
+					//System.out.println(e);
 				}
 				break;
 			}

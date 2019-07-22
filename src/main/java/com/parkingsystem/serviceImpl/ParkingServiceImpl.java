@@ -168,5 +168,11 @@ public class ParkingServiceImpl implements ParkingService {
             System.out.println();
         }
     }
-	
+    public int getMaxSize() {
+    	return this.MAX_SIZE;
+    }
+    
+    public int getAvailableSlotListSize() {
+    	return this.availableSlotList.size();
+    }
 }

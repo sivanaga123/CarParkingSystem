@@ -10,4 +10,6 @@ public interface ParkingService {
 	public void getRegistrationNumbersFromColor(String colour);
 	public void getSlotNumbersFromColor(String colour);
 	public void getSlotNumberFromRegNo(String regNo);
+	public int getMaxSize();
+	public int getAvailableSlotListSize();
 }

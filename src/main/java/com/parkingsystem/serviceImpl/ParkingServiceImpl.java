@@ -9,9 +9,9 @@ import com.parkingsystem.model.Car;
 import com.parkingsystem.service.ParkingService;
 
 public class ParkingServiceImpl implements ParkingService {
-	public int MAX_SIZE = 0;
+	int MAX_SIZE = 0;
 	
-    public ArrayList<Integer> availableSlotList; // Available slots list
+    ArrayList<Integer> availableSlotList; // Available slots list
     Map<String, Car> map1; // Map of Slot, Car
     Map<String, String> map2;  // Map of RegNo, Slot
     Map<String, ArrayList<String>> map3;  // Map of Color, List of RegNo
